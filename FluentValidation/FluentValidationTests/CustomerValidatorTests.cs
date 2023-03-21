@@ -1,8 +1,8 @@
 using FluentValidationExamples.Models;
-using FluentValidationExamples.Validators;
 using FluentValidation.TestHelper;
 using FluentValidation;
 using FluentValidation.Results;
+using FluentValidationExamples.Validators.Basics;
 
 namespace FluentValidationTests
 {

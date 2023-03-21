@@ -3,6 +3,7 @@ using FluentValidationExamples.Models;
 using FluentValidationExamples.Validators;
 using FluentValidation;
 using System.Globalization;
+using FluentValidationExamples.Validators.Basics;
 
 namespace FluentValidationExamples.Controllers
 {

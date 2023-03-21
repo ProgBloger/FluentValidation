@@ -4,7 +4,7 @@ using Moq;
 using FluentValidationExamples;
 using FluentValidationExamples.Controllers;
 using FluentValidationExamples.Models;
-using FluentValidationExamples.Validators;
+using FluentValidationExamples.Validators.Basics;
 
 namespace FluentValidationTests
 {
@@ -30,7 +30,7 @@ namespace FluentValidationTests
             _factoryMock.Setup(m => m.Create<IValidator<Customer>>())
                 .Returns(_validator);
 
-            _sut = new CustomerController(_factoryMock.Object);
+            //_sut = new CustomerController(_factoryMock.Object);
         }
 
         [Test]

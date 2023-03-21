@@ -1,16 +1,17 @@
 ﻿using FluentValidation;
 using FluentValidationExamples.Models;
+using System.Collections.Generic;
 
-namespace FluentValidationExamples.Validators
+namespace FluentValidationExamples.Validators.Basics
 {
-    public class CustomerValidator : AbstractValidator<Customer>
+    // https://docs.fluentvalidation.net/en/latest/collections.html#
+    public class CollectionsCustomerValidator : AbstractValidator<Customer>
     {
-        public CustomerValidator()
+        public CollectionsCustomerValidator()
         {
-            RuleFor(customer => customer.Surname).NotNull().NotEqual("string");
-
-            // Collections
             RuleForEach(x => x.Orders).SetValidator(new OrderValidator());
+
+            // Selecting items from the list that should be validated
             RuleForEach(x => x.Orders)
                 .Where(order => order.Sum != null)
                 .SetValidator(new OrderValidator());
@@ -20,6 +21,7 @@ namespace FluentValidationExamples.Validators
                 orders.RuleFor(x => x.Total).LessThan(1000);
             });
 
+            // Applying validation rules to each item after the collection rule
             RuleFor(x => x.Orders)
                 .Must(x => x.Count < 10)
                     .WithMessage("Amount of orders can't be more than 10")

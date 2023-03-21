@@ -4,15 +4,16 @@ using FluentValidationExamples.Validators;
 using FluentValidation;
 using FluentValidationExamples.Extensions;
 using FluentValidationExamples.Validators.Basics;
+using FluentValidationExamples.Validators.Customability;
 
 namespace FluentValidationExamples.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class ExceptionCustomerController : Controller
+    public class RootContextCustomerController : Controller
     {
         private IFactory _factory;
-        public ExceptionCustomerController(IFactory factory)
+        public RootContextCustomerController(IFactory factory)
         {
             _factory = factory;
         }
@@ -20,7 +21,7 @@ namespace FluentValidationExamples.Controllers
         [HttpPost(Name = "ExceptionCustomer")]
         public IActionResult PostCustomer(Customer customer)
         {
-            var validator = _factory.Create<CustomerValidator>();
+            var validator = _factory.Create<CustomCustomerValidator>();
 
             // The lines below are equivalent and require FluentValidation using
             validator.ValidateAndThrow(customer);

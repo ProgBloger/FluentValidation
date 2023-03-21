@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
 using FluentValidationExamples.Models;
 
-namespace FluentValidationExamples.Validators
+namespace FluentValidationExamples.Validators.SupportExamples
 {
     public class CustomerNameValidator : AbstractValidator<Customer>
     {

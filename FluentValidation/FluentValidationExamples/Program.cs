@@ -6,6 +6,7 @@ using FluentValidationExamples.ExternalClients;
 using FluentValidationExamples.Models;
 using FluentValidationExamples.Resources;
 using FluentValidationExamples.Validators;
+using FluentValidationExamples.Validators.Basics;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -40,7 +41,7 @@ void ConfigureValidation(IServiceCollection services)
     //ValidatorOptions.Global.DefaultRuleLevelCascadeMode = CascadeMode.Stop;
     //ValidatorOptions.Global.LanguageManager = new CustomLanguageManager();
 
-    services.AddTransient<IValidator<Customer>, CustomerRuleSetValidator>();
+    services.AddTransient<IValidator<Customer>, CustomerValidator>();
 }
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
