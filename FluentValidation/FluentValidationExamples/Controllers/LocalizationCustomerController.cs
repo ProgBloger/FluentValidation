@@ -9,6 +9,7 @@ namespace FluentValidationExamples.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    // Available languages https://github.com/FluentValidation/FluentValidation/tree/main/src/FluentValidation/Resources/Languages
     public class LocalizationCustomerController : Controller
     {
         private IFactory _factory;
@@ -17,7 +18,6 @@ namespace FluentValidationExamples.Controllers
             _factory = factory;
         }
 
-        // Available languages https://github.com/FluentValidation/FluentValidation/tree/main/src/FluentValidation/Resources/Languages
         [HttpPost(Name = "LocalizationCustomer")]
         public IActionResult PostCustomer(Customer customer)
         {

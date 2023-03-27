@@ -14,6 +14,9 @@ namespace FluentValidationExamples.Validators.SupportExamples
         {
             string elon = "elon";
 
+            if (arg == null)
+                return true;
+
             return arg.ToLower() != elon;
         }
     }

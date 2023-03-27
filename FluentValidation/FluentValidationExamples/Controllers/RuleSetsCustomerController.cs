@@ -1,72 +1,77 @@
-﻿//using Microsoft.AspNetCore.Mvc;
-//using FluentValidationExamples.Models;
-//using FluentValidationExamples.Validators;
-//using FluentValidation;
+﻿using Microsoft.AspNetCore.Mvc;
+using FluentValidationExamples.Models;
+using FluentValidation;
+using FluentValidationExamples.Validators.Customization;
 
-//namespace FluentValidationExamples.Controllers
-//{
-//    [ApiController]
-//    [Route("[controller]")]
-//    public class CustomerController : Controller
-//    {
-//        private IFactory _factory;
-//        public CustomerController(IFactory factory)
-//        {
-//            _factory = factory;
-//        }
+namespace FluentValidationExamples.Controllers
+{
+    [ApiController]
+    [Route("[controller]")]
+    // https://docs.fluentvalidation.net/en/latest/rulesets.html
+    public class RuleSetsCustomerController : Controller
+    {
+        private IFactory _factory;
+        public RuleSetsCustomerController(IFactory factory)
+        {
+            _factory = factory;
+        }
 
-//        [HttpPost(Name = "Customer")]
-//        public IActionResult Customer(Customer customer)
-//        {
-//            var validator = _factory.Create<CustomerValidator>();
+        [HttpPost(Name = "RuleSetsCustomer")]
+        public IActionResult CustomerPost(Customer customer)
+        {
+            var validator = _factory.Create<RuleSetCustomerValidator>();
 
-//            #region ValidateSpecificPropertiesOnly
-//            // Only Surname will be validated
-//            //var validationResult = validator.Validate(customer, options =>
-//            //{
-//            //    options.IncludeProperties(x => x.Surname);
-//            //});
+            var validationResults = validator.Validate(customer, options =>
+            {
+                // If you call Validate without passing a ruleset then only rules not in a RuleSet will be executed.
+                options.IncludeRuleSets("NamesRequired", "CustomerDiscount");
+            });
 
-//            // Wildcard [] is used to indicate all items of a collection
-//            // The Total property of every Order will be validated
-//            //var validationResult = validator.Validate(customer, options =>
-//            //{
-//            //    options.IncludeProperties("Orders[].Total");
-//            //});
-//            #endregion
+            if (!validationResults.IsValid)
+            {
+                return BadRequest(validationResults.Errors);
+            }
 
-//            #region ThrowExceptionsOnValidationErrors
-//            // The lines below are equivalent and require FluentValidation using
+            return Ok();
+        }
 
-//            //_validator.ValidateAndThrow(customer);
+        [HttpPut(Name = "RuleSetsCustomer")]
+        public IActionResult CustomerPut(Customer customer)
+        {
+            var validator = _factory.Create<RuleSetCustomerValidator>();
 
-//            //var validationResults = _validator.Validate(customer,
-//            //    options => options.ThrowOnFailures());
-//            #endregion
+            var validationResults = validator.Validate(customer, options =>
+            {
+                // "default" is used for rules that aren't included in any of the Rule Sets
+                // in CustomerRuleSetValidator it's RuleFor(x => x.Id).NotEqual(0);
+                options.IncludeRuleSets("CustomerDiscount", "default");
+                // You can also use the .IncludeRulesNotInRuleSet() method instead of passing "default"
+            });
 
-//            #region IncludeRuleSets
-//            //var validationResults = validator.Validate(customer, options =>
-//            //{
-//            //    options.IncludeRuleSets("DefaultCascadeBehaviour");
-//            //});
-//            #endregion
+            if (!validationResults.IsValid)
+            {
+                return BadRequest(validationResults.Errors);
+            }
 
-//            #region RootContextData
+            return Ok();
+        }
 
-//            //var context = new ValidationContext<Customer>(customer);
-//            //context.RootContextData["MyCustomData"] = "Test";
-//            //var validationResults = validator.Validate(context);
+        [HttpDelete(Name = "RuleSetsCustomer")]
+        public IActionResult CustomerDelete(Customer customer)
+        {
+            var validator = _factory.Create<RuleSetCustomerValidator>();
 
-//            #endregion
+            var validationResults = validator.Validate(customer, options =>
+            {
+                options.IncludeAllRuleSets();
+            });
 
-//            var validationResults = validator.Validate(customer);
+            if (!validationResults.IsValid)
+            {
+                return BadRequest(validationResults.Errors);
+            }
 
-//            if (!validationResults.IsValid)
-//            {
-//                return BadRequest(validationResults.Errors);
-//            }
-
-//            return Ok();
-//        }
-//    }
-//}
+            return Ok();
+        }
+    }
+}

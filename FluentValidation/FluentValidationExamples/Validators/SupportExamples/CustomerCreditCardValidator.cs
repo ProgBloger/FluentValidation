@@ -11,6 +11,6 @@ namespace FluentValidationExamples.Validators.SupportExamples
                 .Must(NotBeElon);
         }
 
-        public Func<string, bool> NotBeElon => (arg) => !arg.ToLower().Contains("elon");
+        public Func<string, bool> NotBeElon => (arg) => arg == null || !arg.ToLower().Contains("elon");
     }
 }

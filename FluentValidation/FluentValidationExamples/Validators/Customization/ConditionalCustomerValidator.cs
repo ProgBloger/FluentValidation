@@ -1,11 +1,9 @@
 ﻿using FluentValidation;
-using FluentValidation.Results;
-using FluentValidationExamples.Extensions;
 using FluentValidationExamples.Models;
-using FluentValidationExamples.Validators.CustomValidators;
 
 namespace FluentValidationExamples.Validators.Customization
 {
+    //https://docs.fluentvalidation.net/en/latest/conditions.html
     public class ConditionalCustomerValidator : AbstractValidator<Customer>
     {
         public ConditionalCustomerValidator()

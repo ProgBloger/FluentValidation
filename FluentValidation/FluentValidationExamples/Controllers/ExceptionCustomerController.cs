@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using FluentValidationExamples.Models;
-using FluentValidationExamples.Validators;
 using FluentValidation;
 using FluentValidationExamples.Extensions;
 using FluentValidationExamples.Validators.Basics;
@@ -9,6 +8,7 @@ namespace FluentValidationExamples.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    //https://docs.fluentvalidation.net/en/latest/start.html?highlight=throwonfailures#throwing-exceptions
     public class ExceptionCustomerController : Controller
     {
         private IFactory _factory;
@@ -22,7 +22,7 @@ namespace FluentValidationExamples.Controllers
         {
             var validator = _factory.Create<CustomerValidator>();
 
-            // The lines below are equivalent and require FluentValidation using
+            // The lines below are equivalent and require the FluentValidation using
             validator.ValidateAndThrow(customer);
 
             //var validationResults = _validator.Validate(customer,

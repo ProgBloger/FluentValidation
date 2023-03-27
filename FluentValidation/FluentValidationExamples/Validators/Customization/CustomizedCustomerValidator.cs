@@ -7,13 +7,14 @@ using FluentValidationExamples.Validators.SupportExamples;
 
 namespace FluentValidationExamples.Validators.Customability
 {
-    public class CustomCustomerValidator : AbstractValidator<Customer>
+    //https://docs.fluentvalidation.net/en/latest/custom-validators.html?highlight=must
+    public class CustomizedCustomerValidator : AbstractValidator<Customer>
     {
-        public CustomCustomerValidator()
+        public CustomizedCustomerValidator()
         {
             // Predicates
             RuleFor(customer => customer.Surname)
-                .Must(surname => surname == "Foo")
+                .Must(surname => surname == "string")
 
                 // With model (customer)
                 .Must((customer, surname) => surname != customer.Forename)
@@ -34,13 +35,17 @@ namespace FluentValidationExamples.Validators.Customability
                         context.AddFailure(new ValidationFailure("DiscountProperty", "Can't have discount if list contains less than 10 items"));
                     }
 
-                    // RootContextData
-                    // The RootContextData property is a Dictionary<string, object> available on the ValidationContext
-                    var shouldFailNoMatterWhat = (bool)context.RootContextData["ShouldFailNoMatterWhat"];
-
-                    if (shouldFailNoMatterWhat)
+                // RootContextData
+                // The RootContextData property is a Dictionary<string, object> available on the ValidationContext
+                //https://docs.fluentvalidation.net/en/latest/advanced.html?highlight=RootContextData#root-context-data
+                    if (context.RootContextData.ContainsKey("ShouldFailNoMatterWhat"))
                     {
-                        context.AddFailure("You shall not pass!!!");
+                        var shouldFailNoMatterWhat = (bool)context.RootContextData["ShouldFailNoMatterWhat"];
+
+                        if (shouldFailNoMatterWhat)
+                        {
+                            context.AddFailure("You shall not pass!!!");
+                        }
                     }
                 })
                 .ListMustContainFewerThan(10)

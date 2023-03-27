@@ -1,9 +1,8 @@
 ﻿using FluentValidation;
 using FluentValidation.Results;
 using FluentValidationExamples.Models;
-using FluentValidationExamples.Validators.Basics;
 
-namespace FluentValidationExamples.Validators
+namespace FluentValidationExamples.Validators.Basics
 {
     public class ExceptionCustomerValidator : AbstractValidator<Customer>
     {
@@ -12,6 +11,7 @@ namespace FluentValidationExamples.Validators
             Include(new CustomerValidator());
         }
 
+        //https://docs.fluentvalidation.net/en/latest/advanced.html?highlight=RaiseValidationException#customizing-the-validation-exception
         protected override void RaiseValidationException(ValidationContext<Customer> context, ValidationResult result)
         {
             var ex = new ValidationException(result.Errors);
