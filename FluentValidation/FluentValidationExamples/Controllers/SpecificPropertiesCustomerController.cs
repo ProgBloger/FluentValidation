@@ -1,9 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using FluentValidationExamples.Models;
 using FluentValidation;
-using FluentValidationExamples.Validators.Customization;
 using FluentValidationExamples.Validators.SupportExamples;
-using FluentValidationExamples.Validators.Basics;
 
 namespace FluentValidationExamples.Controllers
 {

@@ -14,13 +14,13 @@ namespace FluentValidationTests
     [TestFixture]
     public class CustomerValidatorAsyncTests
     {
-        private CustomerValidatorAsync _validator;
+        private AsynchronousCustomerValidator _validator;
 
         [SetUp]
         public void Setup()
         {
             var client = new SomeExternalWebApiClient();
-            _validator = new CustomerValidatorAsync(client);
+            _validator = new AsynchronousCustomerValidator(client);
         }
 
         [Test]

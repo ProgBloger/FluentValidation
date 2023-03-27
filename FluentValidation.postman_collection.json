@@ -1,0 +1,606 @@
+{
+	"info": {
+		"_postman_id": "aeda0eb9-9e75-4533-8d93-8dc74089ecb9",
+		"name": "FluentValidation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26399191"
+	},
+	"item": [
+		{
+			"name": "Smoke Test",
+			"item": [
+				{
+					"name": "PostSmokeTest",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 0,\r\n  \"surname\": \"string\",\r\n  \"forename\": \"string\",\r\n  \"customerDiscount\": 0,\r\n  \"maxCustomerDiscount\": 0,\r\n  \"minCustomerDiscount\": 0,\r\n  \"email\": \"string\",\r\n  \"isPreferredCustomer\": true,\r\n  \"creditCardNumber\": \"string\",\r\n  \"creditCardName\": \"string\",\r\n  \"photo\": \"string\",\r\n  \"customerType\": 0,\r\n  \"orders\": [\r\n    {\r\n      \"tags\": [\r\n        \"string\"\r\n      ],\r\n      \"total\": 0,\r\n      \"sum\": 0\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5001/customer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"customer"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Exceptions",
+			"item": [
+				{
+					"name": "PostException ValidateAndThrow",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 0,\r\n  \"surname\": \"string\",\r\n  \"forename\": \"string\",\r\n  \"customerDiscount\": 0,\r\n  \"maxCustomerDiscount\": 0,\r\n  \"minCustomerDiscount\": 0,\r\n  \"email\": \"string\",\r\n  \"isPreferredCustomer\": true,\r\n  \"creditCardNumber\": \"string\",\r\n  \"creditCardName\": \"string\",\r\n  \"photo\": \"string\",\r\n  \"customerType\": 0,\r\n  \"orders\": [\r\n    {\r\n      \"tags\": [\r\n        \"string\"\r\n      ],\r\n      \"total\": 0,\r\n      \"sum\": 0\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5001/ExceptionCustomer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"ExceptionCustomer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostException RaiseValidationException",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 0,\r\n  \"surname\": \"string\",\r\n  \"forename\": \"string\",\r\n  \"customerDiscount\": 0,\r\n  \"maxCustomerDiscount\": 0,\r\n  \"minCustomerDiscount\": 0,\r\n  \"email\": \"string\",\r\n  \"isPreferredCustomer\": true,\r\n  \"creditCardNumber\": \"string\",\r\n  \"creditCardName\": \"string\",\r\n  \"photo\": \"string\",\r\n  \"customerType\": 0,\r\n  \"orders\": [\r\n    {\r\n      \"tags\": [\r\n        \"string\"\r\n      ],\r\n      \"total\": 0,\r\n      \"sum\": 0\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5001/ExceptionCustomer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"ExceptionCustomer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostException RaiseValidationException Copy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 0,\r\n  \"surname\": \"string\",\r\n  \"forename\": \"string\",\r\n  \"customerDiscount\": 0,\r\n  \"maxCustomerDiscount\": 0,\r\n  \"minCustomerDiscount\": 0,\r\n  \"email\": \"string\",\r\n  \"isPreferredCustomer\": true,\r\n  \"creditCardNumber\": \"string\",\r\n  \"creditCardName\": \"string\",\r\n  \"photo\": \"string\",\r\n  \"customerType\": 0,\r\n  \"orders\": [\r\n    {\r\n      \"tags\": [\r\n        \"string\"\r\n      ],\r\n      \"total\": 0,\r\n      \"sum\": 0\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5001/ExceptionCustomer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"ExceptionCustomer"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Customized Validators",
+			"item": [
+				{
+					"name": "PostCustomizedValidators",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 0,\r\n  \"surname\": \"string\",\r\n  \"forename\": \"string\",\r\n  \"customerDiscount\": 0,\r\n  \"maxCustomerDiscount\": 0,\r\n  \"minCustomerDiscount\": 0,\r\n  \"email\": \"string\",\r\n  \"isPreferredCustomer\": true,\r\n  \"creditCardNumber\": \"string\",\r\n  \"creditCardName\": \"string\",\r\n  \"photo\": \"string\",\r\n  \"customerType\": 0,\r\n  \"orders\": [\r\n    {\r\n      \"tags\": [\r\n        \"string\"\r\n      ],\r\n      \"total\": 0,\r\n      \"sum\": 0\r\n    },\r\n    {\r\n      \"tags\": [\r\n        \"string\"\r\n      ],\r\n      \"total\": 0,\r\n      \"sum\": 0\r\n    },\r\n    {\r\n      \"tags\": [\r\n        \"string\"\r\n      ],\r\n      \"total\": 0,\r\n      \"sum\": 0\r\n    },\r\n    {\r\n      \"tags\": [\r\n        \"string\"\r\n      ],\r\n      \"total\": 0,\r\n      \"sum\": 0\r\n    },\r\n    {\r\n      \"tags\": [\r\n        \"string\"\r\n      ],\r\n      \"total\": 0,\r\n      \"sum\": 0\r\n    },\r\n    {\r\n      \"tags\": [\r\n        \"string\"\r\n      ],\r\n      \"total\": 0,\r\n      \"sum\": 0\r\n    },\r\n    {\r\n      \"tags\": [\r\n        \"string\"\r\n      ],\r\n      \"total\": 0,\r\n      \"sum\": 0\r\n    },\r\n    {\r\n      \"tags\": [\r\n        \"string\"\r\n      ],\r\n      \"total\": 0,\r\n      \"sum\": 0\r\n    },\r\n    {\r\n      \"tags\": [\r\n        \"string\"\r\n      ],\r\n      \"total\": 0,\r\n      \"sum\": 0\r\n    },\r\n    {\r\n      \"tags\": [\r\n        \"string\"\r\n      ],\r\n      \"total\": 0,\r\n      \"sum\": 0\r\n    },\r\n    {\r\n      \"tags\": [\r\n        \"string\"\r\n      ],\r\n      \"total\": 0,\r\n      \"sum\": 0\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5001/CustomizedCustomer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"CustomizedCustomer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostRootContextData",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 0,\r\n  \"surname\": \"string\",\r\n  \"forename\": \"bar\",\r\n  \"customerDiscount\": 0,\r\n  \"maxCustomerDiscount\": 0,\r\n  \"minCustomerDiscount\": 0,\r\n  \"email\": \"string\",\r\n  \"isPreferredCustomer\": true,\r\n  \"creditCardNumber\": \"string\",\r\n  \"creditCardName\": \"string\",\r\n  \"photo\": \"string\",\r\n  \"customerType\": 0,\r\n  \"orders\": [\r\n    {\r\n      \"tags\": [\r\n        \"string\"\r\n      ],\r\n      \"total\": 0,\r\n      \"sum\": 0\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5001/CustomizedCustomer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"CustomizedCustomer"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Rule Set",
+			"item": [
+				{
+					"name": "DeleteRuleSet",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"MinCustomerDiscount\": -10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5001/RuleSetsCustomer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"RuleSetsCustomer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostRuleSet",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"MinCustomerDiscount\": -10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5001/RuleSetsCustomer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"RuleSetsCustomer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PutRuleSet",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"MinCustomerDiscount\": -10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5001/RuleSetsCustomer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"RuleSetsCustomer"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Specific Properties",
+			"item": [
+				{
+					"name": "PostSpecificPropertiesCustomer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"customerType\": 1000,\r\n  \"orders\": [\r\n    {\r\n      \"total\": -90000\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5001/SpecificPropertiesCustomer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"SpecificPropertiesCustomer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PutSpecificPropertiesCustomer",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"customerType\": 1000,\r\n  \"orders\": [\r\n    {\r\n      \"total\": -90000\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5001/SpecificPropertiesCustomer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"SpecificPropertiesCustomer"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cascade",
+			"item": [
+				{
+					"name": "PostCascade",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5001/CascadeCustomer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"CascadeCustomer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PutCascadeRuleLevel",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"MinCustomerDiscount\": -10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5001/CascadeCustomer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"CascadeCustomer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteCascadeClassLevel",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"MinCustomerDiscount\": -10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5001/CascadeCustomer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"CascadeCustomer"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Asynchronous Validators",
+			"item": [
+				{
+					"name": "PostAsynchronousMust",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Id\": -10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5001/AsynchronousCustomer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"AsynchronousCustomer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PutAsynchronousCustom",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Surname\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5001/AsynchronousCustomer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"AsynchronousCustomer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteAsynchronousWhen",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Surname\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5001/AsynchronousCustomer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"AsynchronousCustomer"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Localization",
+			"item": [
+				{
+					"name": "PostDefaultLocalization",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Language",
+								"value": "fr",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 0,\r\n  \"surname\": \"string\",\r\n  \"forename\": \"string\",\r\n  \"customerDiscount\": 0,\r\n  \"maxCustomerDiscount\": 0,\r\n  \"minCustomerDiscount\": 0,\r\n  \"isPreferredCustomer\": true,\r\n  \"creditCardNumber\": \"string\",\r\n  \"creditCardName\": \"string\",\r\n  \"photo\": \"string\",\r\n  \"customerType\": 0,\r\n  \"orders\": [\r\n    {\r\n      \"tags\": [\r\n        \"string\"\r\n      ],\r\n      \"total\": 0,\r\n      \"sum\": 0\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5001/localizationcustomer?culture=nb-NO",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"localizationcustomer"
+							],
+							"query": [
+								{
+									"key": "culture",
+									"value": "nb-NO"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostNorwegianLocalization",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Language",
+								"value": "fr",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 0,\r\n  \"surname\": \"string\",\r\n  \"forename\": \"string\",\r\n  \"customerDiscount\": 0,\r\n  \"maxCustomerDiscount\": 0,\r\n  \"minCustomerDiscount\": 0,\r\n  \"isPreferredCustomer\": true,\r\n  \"creditCardNumber\": \"string\",\r\n  \"creditCardName\": \"string\",\r\n  \"photo\": \"string\",\r\n  \"customerType\": 0,\r\n  \"orders\": [\r\n    {\r\n      \"tags\": [\r\n        \"string\"\r\n      ],\r\n      \"total\": 0,\r\n      \"sum\": 0\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5001/localizationcustomer?culture=nb-NO",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"localizationcustomer"
+							],
+							"query": [
+								{
+									"key": "culture",
+									"value": "nb-NO"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
