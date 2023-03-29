@@ -25,7 +25,7 @@ ConfigureValidation(builder.Services);
 void ConfigureValidation(IServiceCollection services)
 {
     // By default registration is Scoped
-    services.AddValidatorsFromAssemblyContaining<UserValidator>(ServiceLifetime.Transient);
+    services.AddValidatorsFromAssemblyContaining<CustomerValidator>(ServiceLifetime.Transient);
 
     // Optional filter that can exclude some validators from automatic registration
     //builder.Services.AddValidatorsFromAssemblyContaining<UserValidator>(ServiceLifetime.Transient, filter => filter.ValidatorType != typeof(CustomerValidator));

@@ -1,9 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using FluentValidationExamples.Models;
 using FluentValidationExamples.Validators;
-using FluentValidation;
-using System.Globalization;
-using FluentValidationExamples.Validators.Basics;
 
 namespace FluentValidationExamples.Controllers
 {
@@ -22,36 +19,6 @@ namespace FluentValidationExamples.Controllers
         public IActionResult PostCustomer(Customer customer)
         {
             var validator = _factory.Create<LocalizationCustomerValidator>();
-
-            var validationResults = validator.Validate(customer);
-
-            if (!validationResults.IsValid)
-            {
-                return BadRequest(validationResults.Errors);
-            }
-
-            return Ok();
-        }
-
-        [HttpPut(Name = "LocalizationCustomer")]
-        public IActionResult PutCustomer(Customer customer)
-        {
-            var validator = _factory.Create<CustomerValidator>();
-
-            var validationResults = validator.Validate(customer);
-
-            if (!validationResults.IsValid)
-            {
-                return BadRequest(validationResults.Errors);
-            }
-
-            return Ok();
-        }
-
-        [HttpDelete(Name = "LocalizationCustomer")]
-        public IActionResult DeleteCustomer(Customer customer)
-        {
-            var validator = _factory.Create<CustomerValidator>();
 
             var validationResults = validator.Validate(customer);
 

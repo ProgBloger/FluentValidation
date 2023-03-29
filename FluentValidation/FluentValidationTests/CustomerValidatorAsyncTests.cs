@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using FluentValidationExamples.ExternalClients;
 using FluentValidationExamples.Models;
 using FluentValidationExamples.Validators;
+using FluentValidation;
+using FluentValidation.Internal;
 
 namespace FluentValidationTests
 {
@@ -24,17 +26,20 @@ namespace FluentValidationTests
         }
 
         [Test]
-        public async Task Shoul_have_error_when_ID_not_unique()
+        public async Task Shoul_have_error_when_RuleSet_is_MustAsync_and_ID_not_unique()
         {
             // Arrange
-            var model = new Customer { Surname = "string", Orders = new List<Order>() };
+            const string expectedErrorMessage = "ID Must be unique";
+            const string mustAsyncRuleSet = "MustAsync";
+
+            Customer customer = new Customer { Orders = new List<Order>() };
 
             // Act
-            var result = await _validator.TestValidateAsync(model);
+            var result = await _validator.TestValidateAsync(customer, options => { options.IncludeRuleSets(mustAsyncRuleSet); });
 
             // Assert
             result.ShouldHaveValidationErrorFor(customer => customer.Id)
-                .WithErrorMessage("ID Must be unique");
+                .WithErrorMessage(expectedErrorMessage);
         }
     }
 }

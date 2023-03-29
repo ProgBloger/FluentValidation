@@ -601,6 +601,79 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Other Features",
+			"item": [
+				{
+					"name": "PostPreValidation",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Language",
+								"value": "fr",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5001/OtherFeaturesCustomer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"OtherFeaturesCustomer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PutComplexPerson",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Language",
+								"value": "fr",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 0,\r\n  \"surname\": \"string\",\r\n  \"forename\": \"string\",\r\n  \"customerDiscount\": 0,\r\n  \"maxCustomerDiscount\": 0,\r\n  \"minCustomerDiscount\": 0,\r\n  \"isPreferredCustomer\": true,\r\n  \"creditCardNumber\": \"string\",\r\n  \"creditCardName\": \"string\",\r\n  \"photo\": \"string\",\r\n  \"customerType\": 0,\r\n  \"orders\": [\r\n    {\r\n      \"tags\": [\r\n        \"string\"\r\n      ],\r\n      \"total\": 0,\r\n      \"sum\": 0\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5001/OtherFeaturesCustomer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"OtherFeaturesCustomer"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }

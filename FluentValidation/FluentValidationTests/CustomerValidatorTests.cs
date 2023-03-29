@@ -20,12 +20,14 @@ namespace FluentValidationTests
     [TestFixture]
     public class CustomerValidatorTests
     {
-        private CustomerValidator validator;
+        private CollectionsCustomerValidator _collectionsCustomerValidator;
+        private CollectionsIncludedCustomerValidator _sut;
         
         [SetUp]
         public void Setup()
         {
-            validator = new CustomerValidator();
+            _collectionsCustomerValidator = new CollectionsCustomerValidator();
+            _sut = new CollectionsIncludedCustomerValidator(_collectionsCustomerValidator);
         }
 
         [Test]
@@ -35,7 +37,7 @@ namespace FluentValidationTests
             var model = new Customer { Surname = "string", Orders = new List<Order>() };
 
             // Act
-            var result = validator.TestValidate(model);
+            var result = _sut.TestValidate(model);
 
             // Assert
             result.ShouldHaveValidationErrorFor(customer => customer.Surname);
@@ -48,7 +50,7 @@ namespace FluentValidationTests
             var model = new Customer { Surname = "Elon", Orders = new List<Order>() };
 
             // Act
-            var result = validator.TestValidate(model);
+            var result = _sut.TestValidate(model);
 
             // Assert
             result.ShouldNotHaveValidationErrorFor(customer => customer.Surname);
@@ -61,7 +63,7 @@ namespace FluentValidationTests
             var model = new Customer { Surname = "string", Orders = new List<Order> { new Order { Total = 0 } } };
 
             // Act
-            var result = validator.TestValidate(model);
+            var result = _sut.TestValidate(model);
 
             // Assert
 
@@ -83,7 +85,7 @@ namespace FluentValidationTests
             var model = new Customer { Surname = null, Orders = new List<Order>() };
 
             // Act
-            var result = validator.TestValidate(model);
+            var result = _sut.TestValidate(model);
 
             // Assert
             result.ShouldHaveValidationErrorFor(customer => customer.Surname)
@@ -99,7 +101,7 @@ namespace FluentValidationTests
             var model = new Customer { Surname = null, Orders = new List<Order>() };
 
             // Act
-            var result = validator.TestValidate(model);
+            var result = _sut.TestValidate(model);
 
             // Assert
 

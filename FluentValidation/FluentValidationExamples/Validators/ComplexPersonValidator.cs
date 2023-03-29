@@ -4,9 +4,9 @@ using FluentValidationExamples.Validators.SupportExamples;
 
 namespace FluentValidationExamples.Validators
 {
-    public class ComplexCustomerValidator : AbstractValidator<Person>
+    public class ComplexPersonValidator : AbstractValidator<Person>
     {
-        public ComplexCustomerValidator()
+        public ComplexPersonValidator()
         {
             RuleFor(x => x.Address).SetInheritanceValidator(v =>
             {
