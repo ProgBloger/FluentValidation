@@ -199,7 +199,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"MinCustomerDiscount\": -10\r\n}",
+							"raw": "{\r\n    \"Id\": 0,\r\n    \"MinCustomerDiscount\": -10\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -227,7 +227,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"MinCustomerDiscount\": -10\r\n}",
+							"raw": "{\r\n    \"Id\": 0,\r\n    \"MinCustomerDiscount\": -10\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -255,7 +255,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"MinCustomerDiscount\": -10\r\n}",
+							"raw": "{\r\n    \"Id\": 0,\r\n    \"MinCustomerDiscount\": -10\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"

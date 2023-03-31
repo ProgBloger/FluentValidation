@@ -1,11 +1,7 @@
 ﻿using FluentValidation;
-using FluentValidationExamples;
 using FluentValidationExamples.Controllers;
 using FluentValidationExamples.Models;
-using FluentValidationExamples.Validators.Customization;
 using Microsoft.AspNetCore.Mvc;
-using Moq;
-using System.ComponentModel.DataAnnotations;
 
 namespace FluentValidationTests
 {
